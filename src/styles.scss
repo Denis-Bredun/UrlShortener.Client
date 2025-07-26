@@ -1,4 +1,45 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+  overflow-x: hidden;
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-card {
+  position: relative;
+  overflow: visible;
+}
+
+.mat-mdc-card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.mat-mdc-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mat-mdc-table {
+  background: transparent;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  background: inherit;
+}
