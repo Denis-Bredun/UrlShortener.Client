@@ -348,6 +348,7 @@ export class UrlsTableComponent implements OnInit {
       this.urlService.delete(url.id).subscribe({
         next: () => {
           this.snackBar.open('URL deleted successfully', 'Close', { duration: 3000 });
+          this.loadUrls();
         },
         error: (error) => {
           this.snackBar.open(
@@ -371,5 +372,6 @@ export class UrlsTableComponent implements OnInit {
 
   onUrlAdded(): void {
     this.snackBar.open('URL added successfully!', 'Close', { duration: 3000 });
+    this.loadUrls();
   }
 } 
