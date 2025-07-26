@@ -42,14 +42,14 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.TOKEN_KEY);
-    localStorage.removeItem(this.USER_KEY);
+    sessionStorage.removeItem(this.TOKEN_KEY);
+    sessionStorage.removeItem(this.USER_KEY);
     this.authStateSubject.next(false);
     this.userInfoSubject.next(null);
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    return sessionStorage.getItem(this.TOKEN_KEY);
   }
 
   isAuthenticated(): boolean {
@@ -65,19 +65,19 @@ export class AuthService {
     return this.http.get<UserInfoDto>(`${this.API_URL}/me`)
       .pipe(
         tap(userInfo => {
-          localStorage.setItem(this.USER_KEY, JSON.stringify(userInfo));
+          sessionStorage.setItem(this.USER_KEY, JSON.stringify(userInfo));
           this.userInfoSubject.next(userInfo);
         })
       );
   }
 
   getUserInfo(): UserInfoDto | null {
-    const userInfoStr = localStorage.getItem(this.USER_KEY);
+    const userInfoStr = sessionStorage.getItem(this.USER_KEY);
     return userInfoStr ? JSON.parse(userInfoStr) : null;
   }
 
   private handleAuthResponse(response: AuthResponseDto): void {
-    localStorage.setItem(this.TOKEN_KEY, response.token);
+    sessionStorage.setItem(this.TOKEN_KEY, response.token);
     this.authStateSubject.next(true);
     this.getCurrentUser().subscribe();
   }

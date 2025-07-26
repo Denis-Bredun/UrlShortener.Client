@@ -98,24 +98,99 @@ import { AuthService } from '../../core/services/auth.service';
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background-color: #f5f5f5;
+      padding: 20px;
     }
 
     .register-card {
-      max-width: 400px;
+      max-width: 450px;
       width: 100%;
-      margin: 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+    }
+
+    mat-card-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 32px;
+      margin: -24px -24px 32px -24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    mat-card-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    mat-card-content {
+      padding: 0 32px 24px;
+      position: relative;
+      z-index: 2;
     }
 
     .full-width {
       width: 100%;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    mat-form-field {
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 25px rgba(103, 126, 234, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    button[type="submit"]:hover:not([disabled]) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(103, 126, 234, 0.4);
     }
 
     mat-card-actions {
       display: flex;
       justify-content: center;
-      padding: 16px;
+      padding: 0 32px 32px;
+    }
+
+    mat-card-actions button {
+      color: #667eea;
+      font-weight: 500;
+    }
+
+    @media (max-width: 500px) {
+      .register-card {
+        margin: 10px;
+        border-radius: 16px;
+      }
+      
+      mat-card-header {
+        padding: 24px 20px 20px;
+        margin: -24px -24px 24px;
+      }
+      
+      mat-card-content,
+      mat-card-actions {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
   `]
 })
