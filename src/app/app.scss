@@ -1,0 +1,29 @@
+.main-content {
+  min-height: calc(100vh - 64px);
+  padding: 24px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  z-index: 1;
+}
+
+:host ::ng-deep {
+  .login-container,
+  .register-container {
+    min-height: calc(100vh - 88px);
+    background: transparent !important;
+    padding: 20px;
+  }
+  
+  .mat-mdc-card {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .mat-mdc-form-field {
+    margin-bottom: 16px !important;
+  }
+  
+  .mat-mdc-form-field .mat-mdc-text-field-wrapper {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+}
